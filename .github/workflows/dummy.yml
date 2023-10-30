@@ -36,9 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests
     steps:
-    - name: production Deployment
+    - name: production deployment
       shell: bash
       run: |
         sleep 5
         #sh /home/runner/work/DummyProject/DummyProject/deploy.sh
-        echo "production Deploymentsuccessful"
+        echo "production deployment successful"

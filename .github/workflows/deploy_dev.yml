@@ -3,9 +3,11 @@ name: 'deploy development'
 on:
   push:
     branches:
-     - '*'
-    branches-ignore:
-     - main
+        - '*'         # matches every branch that doesn't contain a '/'
+        - '*/*'       # matches every branch containing a single '/'
+        - '**'        # matches every branch
+        - '!main' 
+
      
 permissions:
   contents: read

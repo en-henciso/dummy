@@ -1,0 +1,44 @@
+name: 'deploy production'
+
+on:
+  push:
+    branches:
+     - main
+     
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+ 
+env:
+ TF_LOG: INFO
+       
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: build_app
+      shell: bash
+      run: |
+        sleep 5
+        echo "app build"
+  tests:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: tests
+      shell: bash
+      run: |
+        sleep 5
+        echo "tests"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+    - name: production deployment
+      shell: bash
+      run: |
+        sleep 5
+        #sh /home/runner/work/DummyProject/DummyProject/deploy.sh
+        echo "production deployment successful"

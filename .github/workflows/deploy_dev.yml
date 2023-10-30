@@ -1,18 +1,16 @@
-name: 'deploy production'
+name: 'deploy development'
 
 on:
+  pull_request:
+    branches:
+      - dev
   push:
     branches:
-     - '*'
-     
-permissions:
-  contents: read
-  actions: read
-  security-events: write
- 
-env:
- TF_LOG: INFO
-       
+      - dev
+  workflow_run:
+    workflows: ["deploy development"]
+    types:
+      - completed
 
 jobs:
   build:
@@ -36,9 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests
     steps:
-    - name: production deployment
+    - name: development deployment
       shell: bash
       run: |
         sleep 5
         #sh /home/runner/work/DummyProject/DummyProject/deploy.sh
-        echo "production deployment successful"
+        echo "development deployment successful"

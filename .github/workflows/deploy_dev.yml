@@ -25,7 +25,7 @@ jobs:
     - name: build_app
       shell: bash
       run: |
-        sleep 5
+        sleep 1
         echo "app build"
   tests:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
     - name: tests
       shell: bash
       run: |
-        sleep 5
+        sleep 1
         echo "tests"
   deploy:
     runs-on: ubuntu-latest
@@ -43,6 +43,6 @@ jobs:
     - name: development deployment
       shell: bash
       run: |
-        sleep 5
+        sleep 2
         #sh /home/runner/work/DummyProject/DummyProject/deploy.sh
         echo "development deployment successful"
